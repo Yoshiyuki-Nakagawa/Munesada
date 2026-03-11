@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>同盟掲示作成</title>
+</head>
+<body>
+<script type="text/javascript">
+function generate(){
+  var mesg = "";
+  if(document.menu.bear.checked){mesg = mesg + "・20:00 熊狩行動１(通称、熊市)\n・22:00 熊狩行動２(通称、熊煮)\n\n";};
+  if(document.menu.alba.checked){mesg = mesg + "・同盟争覇戦(エントリーお願いします)\n\n";};
+  if(document.menu.frmi.checked){mesg = mesg + "・燃霜鉱区(個人でエントリー)\n\n";};
+  if(document.menu.beex.checked){mesg = mesg + "・野獣駆逐(自動加入ON推奨)\n\n";};
+  if(document.menu.gina.checked){mesg = mesg + "・ジーナの復讐(自動加入ON推奨)\n\n";};
+  if(document.menu.mobi.checked){mesg = mesg + "・同盟総動員(他イベントのミッションと重複しているクエスト受諾を推奨)\n\n";};
+  if(document.menu.wpfc.checked){mesg = mesg + "・兵器工場争奪戦(参加可能な時間に投票お願いします。)\n\n";};
+  if(document.menu.strg.checked){
+    if(document.menu.days.value == "1"){mesg = mesg + "・最強領主１日目(建造、研究、訓練、募集、欠片)\n\n";};
+    if(document.menu.days.value == "2"){mesg = mesg + "・最強領主２日目(ラッキールーレット、欠片、採集)\n\n";};
+    if(document.menu.days.value == "3"){mesg = mesg + "・最強領主３日目(訓練)\n\n";};
+    if(document.menu.days.value == "4"){mesg = mesg + "・最強領主４日目(領主宝石、採集、研究)\n\n";};
+    if(document.menu.days.value == "5"){mesg = mesg + "・最強領主５日目(エナジー石、英雄専用装備、建造、研究、訓練)\n\n";};
+    if(document.menu.days.value == "6"){mesg = mesg + "・最強領主６日目(領主装備スコア上昇、建造、研究、訓練)\n\n";};
+    if(document.menu.days.value == "7"){mesg = mesg + "・最強領主７日目(欠片、加速)\n\n";};
+  };
+  if(document.menu.merc.checked){mesg = mesg + "・傭兵の名誉\n体力消耗の激しいイベントです。推奨総力と自分の部隊の総力を見比べて、攻撃か集結を選んでください。体力と時間を節約したい方は、ジーナの遠征スキルの育成推奨！\n\n";};
+  if(document.menu.hdtr.checked){mesg = mesg + "・氷結の秘宝(月1程の開催)\n→宝探し特訓(デイリーミッション有)\n→氷結の秘宝(宝箱の優先度、華麗(赤)＞精巧(金)＞普通(銀))\n秘宝鍵石→持ち越し可、秘宝バラ→イベント終了後回収\n\n";};
+//  alert(mesg);
+  document.menu.txt.value = mesg;
+  navigator.clipboard.writeText(mesg);
+  return mesg
+};
+</script>
+<form name="menu">
+<center>
+<table><tbody>
+<tr>
+  <td><input type="checkbox" name="bear" /></td>
+  <td>熊狩行動　</td>
+  <td><input type="checkbox" name="alba" /></td>
+  <td>同盟争覇戦　</td>
+  <td><input type="checkbox" name="frmi" /></td>
+  <td>燃霜鉱区　</td>
+</tr>
+<tr>  
+  <td><input type="checkbox" name="beex" /></td>
+  <td>野獣駆逐　</td>
+  <td><input type="checkbox" name="gina" /></td>
+  <td>ジーナの復讐　</td>
+  <td><input type="checkbox" name="mobi" /></td>
+  <td>同盟総動員　</td>
+</tr>
+<tr>  
+  <td><input type="checkbox" name="wpfc" /></td>
+  <td>兵器工場　</td>
+  <td><input type="checkbox" name="merc" /></td>
+  <td>傭兵の名誉　</td>
+  <td><input type="checkbox" name="hdtr" /></td>
+  <td>氷結の秘宝　</td>
+</tr>
+<tr>
+  <td><input type="checkbox" name="strg" /></td>
+  <td>最強領主</td>
+  <td></td>
+  <td><select name="days">
+    <option value="1">１</option>
+    <option value="2">２</option>
+    <option value="3">３</option>
+    <option value="4">４</option>
+    <option value="5">５</option>
+    <option value="6">６</option>
+    <option value="7">７</option>
+  </select>日目</td>
+  <td></td>
+  <td></td>
+</tr>
+</tbody></table>
+</center>
+<hr>
+<center>
+<button onClick="generate();">生成</button> <button onClick="clipper();">コピー</button>
+<hr>
+<textarea name="txt" cols="32" rows="30"></textarea>
+</form>
+</body></html>
