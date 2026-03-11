@@ -7,7 +7,12 @@
 <body>
 <script type="text/javascript">
 function generate(){
-  var mesg = "";
+  const today = new Date();
+  const month = String(today.getUTCMonth()+1);
+  const day = String(today.getUTCDate()+1);
+  const week = String(today.getUTCDay()+1);
+  const dayNames = ["日","月","火","水","木","金","土","日"]
+  var mesg = "【"+month+"月"+day+"日("+dayNames[week]+")】今日のイベント\n\n";
   if(document.menu.bear.checked){mesg = mesg + "・20:00 熊狩行動１(通称、熊市)\n・22:00 熊狩行動２(通称、熊煮)\n\n";};
   if(document.menu.alba.checked){mesg = mesg + "・同盟争覇戦(エントリーお願いします)\n\n";};
   if(document.menu.frmi.checked){mesg = mesg + "・燃霜鉱区(個人でエントリー)\n\n";};
@@ -27,9 +32,11 @@ function generate(){
   if(document.menu.merc.checked){mesg = mesg + "・傭兵の名誉\n体力消耗の激しいイベントです。推奨総力と自分の部隊の総力を見比べて、攻撃か集結を選んでください。体力と時間を節約したい方は、ジーナの遠征スキルの育成推奨！\n\n";};
   if(document.menu.hdtr.checked){mesg = mesg + "・氷結の秘宝(月1程の開催)\n→宝探し特訓(デイリーミッション有)\n→氷結の秘宝(宝箱の優先度、華麗(赤)＞精巧(金)＞普通(銀))\n秘宝鍵石→持ち越し可、秘宝バラ→イベント終了後回収\n\n";};
 //  alert(mesg);
-  document.menu.txt.value = mesg;
   navigator.clipboard.writeText(mesg);
   return mesg
+};
+function clipper(){
+  navigator.clipboard.writeText(document.menu.txt.value);
 };
 </script>
 <form name="menu">
@@ -79,8 +86,11 @@ function generate(){
 </center>
 <hr>
 <center>
-<button onClick="generate();">生成</button> <button onClick="clipper();">コピー</button>
+<button onClick="generate();">生成</button> <button onClick="clipper();">編集文のコピー＆消去</button>
 <hr>
-<textarea name="txt" cols="32" rows="30"></textarea>
+エディター<br>
+<textarea id="txt" name="txt" cols="32" rows="30"></textarea>
+</center>
 </form>
 </body></html>
+
