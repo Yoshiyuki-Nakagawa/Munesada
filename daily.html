@@ -13,7 +13,9 @@ function generate(){
   const week = String(today.getUTCDay()+1);
   const dayNames = ["日","月","火","水","木","金","土","日"]
   var mesg = "【"+month+"月"+day+"日("+dayNames[week]+")】今日のイベント\n\n";
-  if(document.menu.bear.checked){mesg = mesg + "・20:00 熊狩行動１(通称、熊市)\n・22:00 熊狩行動２(通称、熊煮)\n\n";};
+  if(document.menu.btry.checked){mesg = mesg + "☠️全軍参戦(全日。都市攻撃あり，タイルキルありなので要注意)\n\n";};
+  if(document.menu.crjy.checked){mesg = mesg + "☠️クレイジー・ジョイ("+document.menu.crtm.value+"開始，対策 x.gd/vUK4t )\n\n";};
+  if(document.menu.bear.checked){mesg = mesg + "・"+document.menu.mrkt.value+" 熊狩行動１(通称、熊市)\n・"+document.menu.boil.value+" 熊狩行動２(通称、熊煮)\n\n";};
   if(document.menu.alba.checked){mesg = mesg + "・同盟争覇戦(エントリーお願いします)\n\n";};
   if(document.menu.frmi.checked){mesg = mesg + "・燃霜鉱区(個人でエントリー)\n\n";};
   if(document.menu.beex.checked){mesg = mesg + "・野獣駆逐(自動加入ON推奨)\n\n";};
@@ -45,28 +47,12 @@ function clipper(){
 <tr>
   <td><input type="checkbox" name="bear" /></td>
   <td>熊狩行動　</td>
-  <td><input type="checkbox" name="alba" /></td>
-  <td>同盟争覇戦　</td>
-  <td><input type="checkbox" name="frmi" /></td>
-  <td>燃霜鉱区　</td>
+  <td></td>
+  <td>罠１<input type="time" name="mrkt" value="20:00" /></td>
+  <td></td>
+  <td>罠２<input type="time" name="boil" value="22:00" /></td>
 </tr>
 <tr>  
-  <td><input type="checkbox" name="beex" /></td>
-  <td>野獣駆逐　</td>
-  <td><input type="checkbox" name="gina" /></td>
-  <td>ジーナの復讐　</td>
-  <td><input type="checkbox" name="mobi" /></td>
-  <td>同盟総動員　</td>
-</tr>
-<tr>  
-  <td><input type="checkbox" name="wpfc" /></td>
-  <td>兵器工場　</td>
-  <td><input type="checkbox" name="merc" /></td>
-  <td>傭兵の名誉　</td>
-  <td><input type="checkbox" name="hdtr" /></td>
-  <td>氷結の秘宝　</td>
-</tr>
-<tr>
   <td><input type="checkbox" name="strg" /></td>
   <td>最強領主</td>
   <td></td>
@@ -79,8 +65,36 @@ function clipper(){
     <option value="6">６</option>
     <option value="7">７</option>
   </select>日目</td>
+</tr>
+<tr>  
+  <td><input type="checkbox" name="crjy" /></td>
+  <td>クレイジー・ジョイ</td>
   <td></td>
-  <td></td>
+  <td>開始 <input type="time" name="crtm" value="21:00" /></td>
+</tr>
+<tr>
+  <td><input type="checkbox" name="frmi" /></td>
+  <td>燃霜鉱区　</td>
+  <td><input type="checkbox" name="beex" /></td>
+  <td>野獣駆逐　</td>
+  <td><input type="checkbox" name="gina" /></td>
+  <td>ジーナの復讐　</td>
+</tr>
+<tr>
+  <td><input type="checkbox" name="wpfc" /></td>
+  <td>兵器工場　</td>
+  <td><input type="checkbox" name="merc" /></td>
+  <td>傭兵の名誉　</td>
+  <td><input type="checkbox" name="hdtr" /></td>
+  <td>氷結の秘宝　</td>
+</tr>
+<tr>
+  <td><input type="checkbox" name="alba" /></td>
+  <td>同盟争覇戦　</td>
+  <td><input type="checkbox" name="mobi" /></td>
+  <td>同盟総動員　</td>
+  <td><input type="checkbox" name="btry" /></td>
+  <td><span style="font-weight:bold;color:red;">全軍参戦</span>　</td>
 </tr>
 </tbody></table>
 </center>
