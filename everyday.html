@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>同盟掲示作成</title>
+<title>「本日の同盟掲示」予約文の作成支援システム</title>
 </head>
 <body>
 <script type="text/javascript">
@@ -15,7 +15,7 @@ function generate(){
   var mesg = "【"+month+"月"+day+"日("+dayNames[week]+")】今日のイベント\n\n";
   if(document.menu.btry.checked){mesg = mesg + "☠️全軍参戦(全日。都市攻撃あり，タイルキルありなので要注意)\n\n";};
   if(document.menu.crjy.checked){mesg = mesg + "☠️クレイジー・ジョイ("+document.menu.crtm.value+"開始，対策 x.gd/vUK4t )\n\n";};
-  if(document.menu.bear.checked){mesg = mesg + "・"+document.menu.mrkt.value+" 熊狩行動１(通称、熊市)\n・"+document.menu.boil.value+" 熊狩行動２(通称、熊煮)\n\n";};
+  if(document.menu.bear.checked){mesg = mesg + "・"+document.menu.mrkt.value+" 熊狩行動１\n・"+document.menu.boil.value+" 熊狩行動２\n\n";};
   if(document.menu.alba.checked){mesg = mesg + "・同盟争覇戦(エントリーお願いします)\n\n";};
   if(document.menu.frmi.checked){mesg = mesg + "・燃霜鉱区(個人でエントリー)\n\n";};
   if(document.menu.beex.checked){mesg = mesg + "・野獣駆逐(自動加入ON推奨)\n\n";};
@@ -33,7 +33,6 @@ function generate(){
   };
   if(document.menu.merc.checked){mesg = mesg + "・傭兵の名誉\n体力消耗の激しいイベントです。推奨総力と自分の部隊の総力を見比べて、攻撃か集結を選んでください。体力と時間を節約したい方は、ジーナの遠征スキルの育成推奨！\n\n";};
   if(document.menu.hdtr.checked){mesg = mesg + "・氷結の秘宝(月1程の開催)\n→宝探し特訓(デイリーミッション有)\n→氷結の秘宝(宝箱の優先度、華麗(赤)＞精巧(金)＞普通(銀))\n秘宝鍵石→持ち越し可、秘宝バラ→イベント終了後回収\n\n";};
-  mesg = mesg + "同盟原則 x.gd/VTlDO\n友好同盟 BeK,hey,TGR,UDN,AEG";
   navigator.clipboard.writeText(mesg);
   return mesg
 };
